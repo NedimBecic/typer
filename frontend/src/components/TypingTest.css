@@ -1,0 +1,144 @@
+.typing-test {
+  padding: 0;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hidden-input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: default;
+  z-index: 10;
+}
+
+.stats-bar {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.text-display {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  min-height: 150px;
+  user-select: none;
+  overflow: hidden;
+  padding: 0.5rem 0;
+}
+
+.start-hint {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.typing-test:not(:focus-within) .start-hint {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+.words-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  align-content: flex-start;
+}
+
+.word {
+  margin-right: 0.6em;
+  margin-bottom: 0.5em;
+  display: flex;
+}
+
+.char {
+  position: relative;
+  transition: color 0.1s;
+  border-bottom: 2px solid transparent;
+}
+
+.char.current {
+  color: var(--text-muted);
+}
+
+.char.current::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 10%;
+  height: 80%;
+  width: 2px;
+  background: var(--accent-primary);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.char.correct {
+  color: var(--correct);
+}
+
+.char.incorrect {
+  color: var(--incorrect);
+}
+
+/* New style for extra characters */
+.char.extra {
+  color: #7d2a2a; /* Dark red for extras */
+  opacity: 0.8;
+}
+
+.restart-btn {
+  margin-top: 3rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.75rem 2rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 20;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.restart-btn:hover {
+  color: var(--bg-primary);
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
