@@ -1,8 +1,8 @@
 # Typer
 
-A personal project for practicing typing speed and accuracy.
+As I recently bought a split keyboard I wanted to practice typing, so I created this project. This is a web app for practicing typing, something similar to typingmonkey. 
 
-Built with a **Java Spring Boot** backend and a **React (Vite)** frontend.
+It is built with a **Java Spring Boot** backend and a **React (Vite)** frontend.
 
 ## Features
 
